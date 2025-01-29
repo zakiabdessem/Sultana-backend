@@ -1,0 +1,40 @@
+{
+  "name": "aexol-shop-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev:server": "ts-node ./src/index.ts",
+    "dev:worker": "ts-node ./src/index-worker.ts",
+    "dev": "concurrently npm:dev:*",
+    "build": "tsc",
+    "start:server": "node ./dist/index.js",
+    "start:worker": "node ./dist/index-worker.js",
+    "start": "concurrently npm:start:*",
+    "migration:generate": "ts-node migration generate",
+    "migration:run": "ts-node migration run",
+    "migration:revert": "ts-node migration revert",
+    "stripe": "stripe listen --forward-to localhost:3000/payments/stripe"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.478.0",
+    "@aws-sdk/credential-providers": "^3.668.0",
+    "@aws-sdk/lib-storage": "^3.478.0",
+    "@vendure/admin-ui-plugin": "2.1.4",
+    "@vendure/asset-server-plugin": "2.1.4",
+    "@vendure/core": "2.1.4",
+    "@vendure/create": "^2.1.5",
+    "@vendure/email-plugin": "2.1.4",
+    "@vendure/payments-plugin": "^2.1.5",
+    "@vendure/ui-devkit": "^2.1.5",
+    "cloudinary": "^2.5.1",
+    "dotenv": "16.3.1",
+    "pg": "8.11.3",
+    "stripe": "^13.11.0",
+    "typescript": "4.9.5",
+    "web-streams-polyfill": "^4.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2",
+    "ts-node": "10.9.2"
+  }
+}
