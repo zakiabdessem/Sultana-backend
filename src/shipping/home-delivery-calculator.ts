@@ -31,8 +31,7 @@ export const ZrexpressHomeShippingCalculator = new ShippingCalculator({
     order: Order,
     args: ConfigArgValues<{ rate: { type: "int"; ui: { component: string } } }>
   ) => {
-    const state = order.shippingAddress
-      ?.city as keyof typeof HOME_DELIVERY_RATES;
+    const state = order.shippingAddress?.city;
     const rate = state
       ? HOME_DELIVERY_RATES[state] || DEFAULT_HOME_DELIVERY_RATE
       : DEFAULT_HOME_DELIVERY_RATE;
